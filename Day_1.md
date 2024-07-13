@@ -169,6 +169,12 @@ Cloud computing is the delivery of computing services—including servers, stora
 
 ---
 
+Hosting a Website:
+
+Deploy applications on a server.
+Use a unique IP address and domain name.
+Manage traffic with load balancers.
+
 ### Everyday Analogy
 
 Cloud computing is like using a public library instead of buying all the books you want to read. You go to the library, pick the books you need, use them for as long as you want, and then return them. You don't have to worry about buying, storing, or maintaining the books.
