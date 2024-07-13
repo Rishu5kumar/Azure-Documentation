@@ -63,9 +63,6 @@ Imagine you have two VNets: one for development and one for production. By peeri
 ### Example 2: Resource Sharing Across Departments
 Different departments within an organization may have their own VNets. VNet peering allows these departments to share resources, such as databases and storage accounts, securely without exposing them to the public internet.
 
-### Example 3: Hybrid Cloud Architecture
-In a hybrid cloud setup, you can peer your on-premises network (connected to Azure via VPN or ExpressRoute) with multiple VNets in Azure, enabling seamless communication and resource sharing between on-premises and cloud environments.
-
 ---
 
 This markdown file provides a detailed explanation of VNet Peering, including the benefits, key concepts, and steps to create and configure VNet Peering in a simple and straightforward manner. The examples illustrate practical use cases to help understand the concept better.
