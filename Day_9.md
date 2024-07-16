@@ -1,4 +1,4 @@
-# Network Security Groups (NSGs) in Azure
+# Day 9: Network Security Groups (NSGs) in Azure
 
 ## Table of Contents
 1. [Introduction](#introduction)
@@ -67,7 +67,8 @@ An **outbound port rule** in Azure NSGs controls outgoing network traffic from A
 **Example**: To allow HTTP traffic (port 80) from a VM in Azure to the internet, you would create an outbound port rule that allows TCP traffic on port 80 from the VM's IP address to any destination.
 
 ## Understanding Ports
-In networking, **ports** are like doors on a building. They allow different types of data to pass through specific entrances (ports) on your Azure resources. Each port is associated with a particular type of service or application. Here's how it works:
+In networking, **ports** are like doors on a building. They allow different types of data to pass through specific entrances (ports) on your Azure resources. Each port is associated with a particular type of service or application. A Port is a virtual point where network connections start and end. It is a software-based concept managed by a computer’s operating system. Each port is associated with a specific process or service. 
+So whenever an application runs, It takes the network ports and through that port it allows the data to come from or transmits the data. Here's how it works:
 
 - **Port Numbers**: Ports are identified by numbers, ranging from 0 to 65535.
 - **Well-Known Ports**: Ports 0 to 1023 are reserved for well-known services (e.g., HTTP on port 80, HTTPS on port 443).
@@ -78,7 +79,6 @@ Ports in NSGs:
 - **Inbound Ports**: Control incoming traffic to Azure resources. For example, allowing SSH (port 22) access to a VM.
 - **Outbound Ports**: Manage outgoing traffic from Azure resources. For example, permitting HTTP (port 80) traffic from a VM to access external web services.
 
-Understanding and managing ports effectively is essential for securing and optimizing network traffic within Azure.
 
 ## Steps to Create an NSG
 1. **Create an NSG**:
