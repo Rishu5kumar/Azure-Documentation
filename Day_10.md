@@ -35,11 +35,13 @@ Azure offers two main types of Load Balancers:
 - Suitable for small-scale applications.
 - Supports inbound traffic only.
 - Uses Basic SKU public IPs.
+- SKU will be basic and dynamic.
 - Does not support availability zones.
 
 ### Standard Load Balancer
 - Supports both inbound and outbound traffic.
 - Uses Standard SKU public IPs.
+- SKU will be standard and static.
 - Supports availability zones for high resiliency.
 - Ideal for applications requiring scalability and high availability.
 
