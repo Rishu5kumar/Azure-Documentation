@@ -108,7 +108,7 @@ Imagine a web application with multiple VM instances behind a Basic Load Balance
 - The Load Balancer distributes incoming requests across VM instances in the backend pool.
 - Health probes monitor the VMs; if one VM fails, traffic is redirected to healthy VMs.
 
-### Inbound NAT Rules
+## Inbound NAT Rules
 - Allow accessing individual VMs through the Load Balancer using specific port numbers.
 When a Network Security Group (NSG) is not connected or attached to a VM, external access to that VM is restricted. Disassociating the public IP addresses from each VM replaces them with a single IP address from the Load Balancer.
 
