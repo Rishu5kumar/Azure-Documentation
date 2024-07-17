@@ -17,7 +17,6 @@
 12. [Limitations of Blob Container Mounting](#limitations-of-blob-container-mounting)
 13. [Re-mounting Blob Container](#re-mounting-blob-container)
 14. [Resource Group Locks](#resource-group-locks)
-15. [Conclusion](#conclusion)
 
 ## Introduction
 Azure provides robust storage solutions with Azure Blob Storage and Azure Files. These services enable scalable, secure, and efficient data storage, accessible from anywhere. Mounting these storage solutions can simplify data management and access in various applications.
@@ -310,9 +309,7 @@ Resource group locks prevent accidental deletion or modification of resources. T
 1. **Read-Only**: Prevents changes to resources but allows reading.
 2. **Delete**: Prevents deletion of resources.
 
-## Conclusion
-Mounting Azure Blob Storage and Azure Files to your virtual machines simplifies data management and enhances collaboration. By following the steps outlined, you can leverage Azure’s storage capabilities efficiently in your applications.
 
 ---
 
-This documentation provides a comprehensive guide to mounting Azure Blob Storage and Azure Files using the Azure portal, including examples and diagrams for better understanding.
+Mounting Azure Blob Storage and Azure Files to your virtual machines simplifies data management and enhances collaboration. By following the steps outlined, you can leverage Azure’s storage capabilities efficiently in your applications.
