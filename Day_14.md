@@ -1,4 +1,4 @@
-# Azure Day 14: Static Website Hosting, Migration Strategies, Managed and Unmanaged Disks
+# Day 14: Static Website Hosting, Migration Strategies, Managed and Unmanaged Disks
 
 ## Table of Contents
 
