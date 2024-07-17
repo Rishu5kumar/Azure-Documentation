@@ -47,9 +47,14 @@ Azure offers two main types of Load Balancers:
 
 ## Working with Load Balancers
 Load Balancers manage traffic using:
-- **Frontend Pool**: Public or private IP address that clients connect to.
+- **Frontend Pool**: Public or private IP address that clients connect to. The frontend pool in an Azure Load Balancer serves as the entry point for incoming traffic, defining the public or private IP addresses clients use to connect. It directs this traffic to the backend pool of virtual machines based on load balancing rules, ensuring efficient distribution and high availability of services.
+- 
 - **Backend Pool**: Pool of virtual machines (VMs) that receive the traffic.
-- **Health Probe**: Checks the health of VMs in the backend pool to ensure they can handle traffic.
+- **Health Probe**: Checks the health of VMs in the backend pool to ensure they can handle traffic.Load balancers use health probes to check the availability of VMs. If a VM is down, the load balancer stops sending traffic to it.
+Example: HTTP health probe checks if the web server on a VM returns a 200 OK response.
+
+- **Session Persistence**: Ensures that a user's session is consistently routed to the same VM.
+Example: A user shopping on an e-commerce site continues to interact with the same VM during their session.
 
 ## When to Use Basic Load Balancer
 Use Basic Load Balancer for applications where high availability and redundancy are not critical, and inbound traffic distribution is sufficient for the workload.
@@ -90,6 +95,99 @@ To create a Basic Load Balancer in Azure, follow these steps:
 7. **Review and Create:**
    - Review the configuration settings.
    - Click **Create** to deploy the Basic Load Balancer.
+
+**Diagram:**
+
+                     +---------------------------+
+                     User/Client | Hit Public IP |
+                     +-------------+-------------+
+                                   |
+                                   |
+                     +-------------+-------------+
+                     |     Frontend Pool          |
+                     +----------------------------+
+                                   |
+                                   |
+                            +------+------+
+                            | Load Balancer|
+                            +------+------+
+                                   |
+                      +------------+------------+
+                      |                         |
+             +--------+--------+       +--------+--------+
+             |      Backend     |       |      Backend     |
+             |       Pool       |       |       Pool       |
+             |   (App Subnet)   |       |   (DB Subnet)    |
+             +------------------+       +------------------+
+                      |                         |
+                      |                         |
+     +----------------+----------------+  +----------------+----------------+
+     |   Availability Set              |  |   Availability Set              |
+     | +----------------------------+  |  | +----------------------------+  |
+     | | VM 1     | VM 2     | VM 3  |  |  | | VM 4     | VM 5     | VM 6  |  |
+     | +----------+----------+-------+  |  | +----------+----------+-------+  |
+     +----------------------------------+  +----------------------------------+
+
+
+
+**Diagram to illustrate the Load Balancer and scaling methods:**
+                      +---------------------+
+                      |     Load Balancer   |
+                      |     (Public IP)     |
+                      +---------+-----------+
+                                |
+          +---------------------+---------------------+
+          |                     |                     |
+    +-----+-----+         +-----+-----+         +-----+-----+
+    |    VM 1   |         |    VM 2   |         |    VM 3   |
+    |(Web Server)|         |(Web Server)|         |(Web Server)|
+    +-----+-----+         +-----+-----+         +-----+-----+
+          |                     |                     |
+    +-----+-----+         +-----+-----+         +-----+-----+
+    |   Health  |         |   Health  |         |   Health  |
+    |   Probe   |         |   Probe   |         |   Probe   |
+    +-----------+         +-----------+         +-----------+
+
+Vertical Scaling:
+-----------------
+
+    +---------------------+
+    |   Load Balancer     |
+    |    (Public IP)      |
+    +---------+-----------+
+              |
+      +-------+-------+
+      |      VM 1     |      <- Larger VM
+      | (Web Server)  |
+      +-------+-------+
+              |
+      +-------+-------+
+      |   Health      |
+      |   Probe       |
+      +---------------+
+
+Horizontal Scaling:
+-------------------
+
+                      +---------------------+
+                      |     Load Balancer   |
+                      |     (Public IP)     |
+                      +---------+-----------+
+                                |
+          +---------------------+---------------------+---------------------+
+          |                     |                     |                     |
+    +-----+-----+          +-----+-----+         +-----+-----+         +-----+-----+
+    |    VM 1    |         |    VM 2    |        |    VM 3    |        |    VM 4    |
+    |(Web Server)|         |(Web Server)|        |(Web Server)|        |(Web Server)|
+    +-----+-----+          +-----+-----+         +-----+-----+         +-----+-----+
+          |                     |                     |                     |
+    +-------+-------+   +-------+-------+     +-------+-------+     +-------+-------+
+    |   Health      |   |   Health      |     |   Health      |     |   Health      |
+    |   Probe       |   |   Probe       |     |   Probe       |     |   Probe       |
+    +---------------+   +---------------+     +---------------+     +-------+-------+
+
+
+
 
 ## Availability Sets and Availability Zones
 ### Availability Set
