@@ -194,9 +194,7 @@ Blobfuse is not installed by default in any VM. Use the following commands to do
 
 ## Commands and Tools
 - **Wget**: Used to download files from public links.
-- **df -h
-
-**: Used to check if there is any mounted volume.
+- **df -h**: Used to check if there is any mounted volume.
 
 ## Limitations of Blob Container Mounting
 1. It is not persistent. The mount is removed after a reboot.
