@@ -211,7 +211,7 @@ sudo chown <youruser> /mnt/ramdisk/blobfusetmp
 sudo blobfuse ~/mycontainer --tmp-path=/mnt/resource/blobfusetmp --config-file=/path/to/fuse_connection.cfg -o attr_timeout=240 -o entry_timeout=240 -o negative_timeout=120
 ```
 
-# Persistent Mounting
+## Persistent Mounting
 To make the mounting of Azure Blob Storage or Azure Files persistent across reboots, you need to automate the mounting process by configuring your virtual machine to run the mounting commands at startup. This can be achieved by adding the necessary commands to the VM's startup scripts or system service files.
 
 ### Persistent Mounting of Azure Blob Storage
