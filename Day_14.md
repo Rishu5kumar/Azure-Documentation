@@ -14,14 +14,13 @@
    - [Managed Disks](#managed-disks)
    - [Unmanaged Disks](#unmanaged-disks)
    - [Comparison](#comparison)
-4. [Conclusion](#conclusion)
 
 ## Azure Static Website Hosting
 
 ### Introduction
 
 Hosting a static website in Azure involves using Azure Storage to serve static content like HTML, CSS, JavaScript, and images directly from a storage account.
-**VM Configuration as a Web Server:**
+### VM Configuration as a Web Server:
 
 - Windows: Internet Information Services (IIS)
 - Linux: Apache2
@@ -193,4 +192,3 @@ Unmanaged disks require manual management of storage accounts and VHD files.
 ```
 ---
 Azure provides robust tools for hosting static websites, managing storage, and migrating VM content. Understanding managed and unmanaged disks helps in choosing the right storage solution. Using Azure Storage Explorer simplifies managing Azure Storage resources, making it a powerful tool for Azure administrators.
-
