@@ -25,6 +25,26 @@ NSGs operate at multiple levels within Azure:
 - **Network Interface**: Directly associated with a VM's NIC.
 - **Subnet**: Applied to all resources within the subnet.
 - **Virtual Machine (VM)**: Directly associated with a VM, using either NIC or subnet association.
+- **NSG Attachment**:
+**VM Level**: NSG is attached directly to a VM's NIC to control its inbound and outbound traffic.
+**Subnet Level**: NSG is applied to a subnet to enforce security rules across all VMs within that subnet.
+
++------------------------------------------+          +------------------------------------------+      
+|                  Subnet                  |          |                   Subnet                 |
+|  +---------------+    +---------------+  |          |  +---------------+                       |
+|  |     NSG       |    |     NSG       |  |          |  |      VM  1    |----------+            |
+|  +-------+-------+    +-------+-------+  |          |  +-------+-------+          |            |
+|          |                    |          |          |                             |            |
+|  +-------+-------+    +-------+-------+  |          |  +-------+-------+          |            |     +---------------+     +---------------+
+|  |      NIC      |    |      NIC      |  |          |  |      VM  2    |----------+------------|-----|       NIC     |-----|       NSG     |
+|  +-------+-------+    +-------+-------+  |          |  +-------+-------+          |            |     +---------------+     +---------------+
+|          |                    |          |          |                             |            |
+|  +-------+-------+    +-------+-------+  |          |  +-------+-------+          |            |
+|  |      VM  1    |    |      VM  2    |  |          |  |      VM  3    |----------+            |
+|  +---------------+    +---------------+  |          |  +---------------+                       |
++------------------------------------------+          +------------------------------------------+
+                 VM level                                                 Subnet level
+
 
 NSGs are:
 - **Stateful**: Automatically allows response traffic for permitted inbound requests.
