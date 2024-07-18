@@ -1,4 +1,4 @@
-# Day 15 Content: Azure File Sync, Snapshot, and Swap OS Disk
+# Day 15 : Azure File Sync, Snapshot, and Swap OS Disk
 
 ## Table of Contents
 
