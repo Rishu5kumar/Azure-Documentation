@@ -297,3 +297,4 @@ If a user hits an IP address of a web server, the server responds. However, user
 6. Add Recordsets:
  - Paste the IP of the VM.
  - Add other details (e.g., names like www, app, etc.).
+---
