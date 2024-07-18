@@ -259,8 +259,8 @@ If a user hits an IP address of a web server, the server responds. However, user
 
 1.Create a Resource Group.
 2.Create a Storage Account:
- - Fill in the required details.
- - Enable anonymous access and accept default settings.
+ Fill in the required details.
+ Enable anonymous access and accept default settings.
 3. Create a Container in the Storage Account:
  - Upload the files to the container.
 4. Create a CDN Profile:
