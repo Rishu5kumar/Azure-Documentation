@@ -274,11 +274,11 @@ It is like a phonebook for your computer network, where you can find information
 
 ### Difference between AD and AD DS
 ```
-| Feature                         | Active Directory (AD)                                | Active Directory Domain Services (AD DS)                     |
-|---------------------------------|------------------------------------------------------|-------------------------------------------------------------|
-| **Scope**                       | Umbrella term covering multiple directory services   | Core directory service within Active Directory               |
-| **Components**                  | Includes AD DS, AD LDS, AD CS, AD FS, AD RMS          | Focuses specifically on managing domains and directory objects |
-| **Function**                    | Broad identity and access management                  | Provides authentication, authorization, and resource management |
-| **Example Services**            | AD DS, AD LDS, AD CS, AD FS, AD RMS                  | Core service for managing domains, users, groups, and computers |
+| Feature                         | Active Directory (AD)                                | Active Directory Domain Services (AD DS)                        |
+|---------------------------------|------------------------------------------------------|-----------------------------------------------------------------|
+|   Scope                         | Umbrella term covering multiple directory services   | Core directory service within Active Directory                  |
+|   Components                    | Includes AD DS, AD LDS, AD CS, AD FS, AD RMS         | Focuses specifically on managing domains and directory objects  |
+|   Function                      | Broad identity and access management                 | Provides authentication, authorization, and resource management |
+|   Example Services              | AD DS, AD LDS, AD CS, AD FS, AD RMS                  | Core service for managing domains, users, groups, and computers |
 ```
 ---
