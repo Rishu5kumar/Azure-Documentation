@@ -80,12 +80,12 @@ Unmanaged Disks require you to handle the storage accounts and the VHD files use
 
 ### Characteristics of Managed and Unmanaged Disk types:
 ```
-| Managed Disk Type | Description                                                                                       | Use Case                                | Advantages                             | Limitations                                    |
+| Managed Disk Type | Description                                                                                       | Use Case                                | Advantages                             | Limitations                                   |
 |-------------------|---------------------------------------------------------------------------------------------------|-----------------------------------------|----------------------------------------|-----------------------------------------------|
 | **Standard HDD**  | Offers cost-effective storage with low performance requirements.                                  | Backup storage, low IOPS applications.  | Lower cost per GB.                     | Slower performance compared to SSDs.          |
 | **Standard SSD**  | Provides a balance between cost and performance, suitable for most workloads.                     | Web servers, small databases.           | Better performance than HDDs.          | Limited IOPS compared to Premium SSDs.        |
 | **Premium SSD**   | Offers high-performance storage for I/O-intensive applications.                                   | Databases, enterprise applications.     | High IOPS and throughput.              | Higher cost per GB compared to standard disks. |
-| **Ultra Disk**    | Delivers high-performance, low-latency disk storage for I/O-intensive applications.               | Mission-critical applications, high-performance databases. | Ultra-low latency and high IOPS.      | Highest cost per GB among all disk types.      |
+| **Ultra Disk**    | Delivers high-performance, low-latency disk storage for I/O-intensive applications.               | Mission-critical applications, high-performance databases. | Ultra-low latency and high IOPS.      | Highest cost per GB among all disk types.     |
 
 | Unmanaged Disk Type | Description                                                                                       | Use Case                               | Advantages                            | Limitations                                   |
 |---------------------|---------------------------------------------------------------------------------------------------|-----------------------------------------|----------------------------------------|-----------------------------------------------|
