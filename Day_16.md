@@ -95,13 +95,13 @@ Unmanaged Disks require you to handle the storage accounts and the VHD files use
 
 ```
 
-| Feature                       | Managed Disks          | Unmanaged Disks            |
-|-------------------------------|------------------------|----------------------------|
-| Storage Account Management    | Managed by Azure       | Managed by user            |
-| Scalability                   | Highly scalable        | Limited by storage account capacity |
-| Simplicity                    | Simple, no need to manage storage | Complex, requires managing storage |
-| Availability                  | Automatically distributed for high availability | Manual distribution needed |
-| Cost                          | Pay for used space     | Pay for storage account capacity and used space |
+| Feature                       |                   Managed Disks                 |                 Unmanaged Disks                  |
+|-------------------------------|-------------------------------------------------|--------------------------------------------------|
+| Storage Account Management    | Managed by Azure                                | Managed by user                                  |
+| Scalability                   | Highly scalable                                 | Limited by storage account capacity              |
+| Simplicity                    | Simple, no need to manage storage               | Complex, requires managing storage               |
+| Availability                  | Automatically distributed for high availability | Manual distribution needed                       |
+| Cost                          | Pay for used space                              | Pay for storage account capacity and used space  |
 ```
 ### Specification
 ```
