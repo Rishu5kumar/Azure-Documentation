@@ -1,9 +1,9 @@
 ## Day 2: IT Process Management and Introduction to DevOps
 
 ### Topics Covered:
-1. [IT Process Management](#it process managament)
-2. Introduction to DevOps
-3. Networking
+1. [IT Process Management](#it-process-managament)
+2. [Introduction to DevOps](#introduction-to-devops)
+3. [Networking](#networking)
 
 ### IT Process Management
 IT Process Management involves planning, organizing, and managing IT resources to achieve organizational goals. It ensures efficient and effective IT operations.
