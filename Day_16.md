@@ -258,8 +258,8 @@ If a user hits an IP address of a web server, the server responds. However, user
 
 ### Create a CDN Profile and Endpoint
 
-1.Create a Resource Group.
-2.Create a Storage Account:
+1. Create a Resource Group.
+2. Create a Storage Account:
    - Fill in the required details.
    - Enable anonymous access and accept default settings.
 3. Create a Container in the Storage Account:
