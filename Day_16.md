@@ -49,11 +49,11 @@ Managed Disks simplify storage management by handling the storage account for yo
 
 #### Key Characteristics:
 
-    - **Azure Managed**: Azure handles the storage account management.
-    - **Scalability**: Easily scalable without worrying about storage account limits.
-    - **Simplicity**: Simplifies VM management by abstracting storage account details.
-    - **Availability Sets**: Automatically placed in different storage accounts when used with availability sets to ensure higher availability.
-    - **Cost**: You only pay for the used space without managing storage account limits.
+  - **Azure Managed**: Azure handles the storage account management.
+  - **Scalability**: Easily scalable without worrying about storage account limits.
+  - **Simplicity**: Simplifies VM management by abstracting storage account details.
+  - **Availability Sets**: Automatically placed in different storage accounts when used with availability sets to ensure higher availability.
+  - **Cost**: You only pay for the used space without managing storage account limits.
 
 ### Unmanaged Disks
 
@@ -73,10 +73,10 @@ Unmanaged Disks require you to handle the storage accounts and the VHD files use
 
 #### Key Characteristics:
 
-    - **Storage Account Management**: You need to create and manage storage accounts.
-    - **Scalability**: Limited by the storage account's capacity limits.
-    - **Complexity**: Requires manual distribution of VHD files across storage accounts to balance the load.
-    - **Cost**: You pay for the storage account capacity and the used space separately.
+  - **Storage Account Management**: You need to create and manage storage accounts.
+  - **Scalability**: Limited by the storage account's capacity limits.
+  - **Complexity**: Requires manual distribution of VHD files across storage accounts to balance the load.
+  - **Cost**: You pay for the storage account capacity and the used space separately.
 
 ### Characteristics of Managed and Unmanaged Disk types:
 ```
@@ -155,20 +155,21 @@ Azure CDN helps reduce latency by creating Points of Presence (POPs) or Edge Loc
 
 ### Key Characteristics:
 
-    - **Latency Reduction**: Reduces the number of hops, lowering latency.
-    - **POP/Edge Locations**: Store cached content, reducing load on the origin server.
+  - **Latency Reduction**: Reduces the number of hops, lowering latency.
+  - **POP/Edge Locations**: Store cached content, reducing load on the origin server.
+  - **CloudFront** is it's AWS equivalent.
 
 ### Use Cases:
 
-    - **Payment Gateways**: Improve response times for financial transactions.
-    - **Gaming Industries**: Enhance performance and user experience.
-    - **Web Applications**: Improve load times for static content like images and videos.
+  - **Payment Gateways**: Improve response times for financial transactions.
+  - **Gaming Industries**: Enhance performance and user experience.
+  - **Web Applications**: Improve load times for static content like images and videos.
 
 ### Indirect Benefits:
 
-- **Load Reduction**: Reduces the load on the origin server.
-- **Increased Security**: Enhances security by distributing content.
-- **Higher Uptime**: Improves the overall uptime of the service.
+  - **Load Reduction**: Reduces the load on the origin server.
+  - **Increased Security**: Enhances security by distributing content.
+  - **Higher Uptime**: Improves the overall uptime of the service.
 
 ### Example Scenario
 
@@ -184,20 +185,20 @@ Azure App Services provide a PaaS environment for deploying and scaling web appl
 
 ### Key Characteristics:
 
-- **Tech-Stack Definition**: Define the technology stack, DB server, source code, and Docker image.
-- **Cost-Effective**: Ideal for small businesses and portfolio websites.
+  - **Tech-Stack Definition**: Define the technology stack, DB server, source code, and Docker image.
+  - **Cost-Effective**: Ideal for small businesses and portfolio websites.
 
 ### Requirements:
 
-- Define the tech stack.
-- Define the database server.
-- Source code.
-- Docker image.
+  - Define the tech stack.
+  - Define the database server.
+  - Source code.
+  - Docker image.
 
 ### Use Cases:
 
-- **Web Applications**: Quickly deploy and scale web applications.
-- **APIs**: Host and manage APIs with built-in authentication and monitoring.
+  - **Web Applications**: Quickly deploy and scale web applications.
+  - **APIs**: Host and manage APIs with built-in authentication and monitoring.
 
 ### Example Scenario
 
@@ -213,27 +214,27 @@ Azure DNS allows you to map domain names to Azure resources, providing DNS resol
 
 ### Key Characteristics:
 
-- **Domain Name Mapping**: Map IP addresses to domain names.
-- **Types of Records**: NS, SOA, A, AAAA, CNAME, MX.
-- **Route 53** is it's AWS equivalent.
+  - **Domain Name Mapping**: Map IP addresses to domain names.
+  - **Types of Records**: NS, SOA, A, AAAA, CNAME, MX.
+  - **Route 53** is it's AWS equivalent.
 
 ### Domain Registries: Websites where we can purchase domain names.
-- Hostinger
-- NameCheap
-- Dynadot
-- Hover
-- Bluehost
-- GoDaddy
-- BidRock
+  - Hostinger
+  - NameCheap
+  - Dynadot
+  - Hover
+  - Bluehost
+  - GoDaddy
+  - BidRock
 
 ### Types of Records:
 
-- **NS (Name Server)**: Changes the domain name configuration.
-- **SOA (Start of Authority)**: Authorizes the domain name.
-- **A (Alias)**: Maps the IPv4 with the domain name.
-- **AAAA**: Maps the IPv6 with the domain name.
-- **CNAME**: Provides a certification to the website.
-- **MX (Mail Exchange)**: Supports email services.
+  - **NS (Name Server)**: Changes the domain name configuration.
+  - **SOA (Start of Authority)**: Authorizes the domain name.
+  - **A (Alias)**: Maps the IPv4 with the domain name.
+  - **AAAA**: Maps the IPv6 with the domain name.
+  - **CNAME**: Provides a certification to the website.
+  - **MX (Mail Exchange)**: Supports email services.
 
 ### Example Scenario
 
