@@ -28,32 +28,32 @@ Managed Disks simplify storage management by handling the storage account for yo
 #### Types of Managed Disks:
 
 1. **Standard HDD**:
-- **Use Case**: Backup storage, low IOPS applications.
-- **Advantages**: Lower cost per GB.
-- **Limitations**: Slower performance compared to SSDs.
+  - **Use Case**: Backup storage, low IOPS applications.
+  - **Advantages**: Lower cost per GB.
+  - **Limitations**: Slower performance compared to SSDs.
 
 2. **Standard SSD**:
-- **Use Case**: Web servers, small databases.
-- **Advantages**: Better performance than HDDs.
-- **Limitations**: Limited IOPS compared to Premium SSDs.
+  - **Use Case**: Web servers, small databases.
+  - **Advantages**: Better performance than HDDs.
+  - **Limitations**: Limited IOPS compared to Premium SSDs.
 
 3. **Premium SSD**:
-- **Use Case**: Databases, enterprise applications.
-- **Advantages**: High IOPS and throughput.
-- **Limitations**: Higher cost per GB compared to standard disks.
+  - **Use Case**: Databases, enterprise applications.
+  - **Advantages**: High IOPS and throughput.
+  - **Limitations**: Higher cost per GB compared to standard disks.
 
 4. **Ultra Disk**:
-- **Use Case**: Mission-critical applications, high-performance databases.
-- **Advantages**: Ultra-low latency and high IOPS.
-- **Limitations**: Highest cost per GB among all disk types.
+  - **Use Case**: Mission-critical applications, high-performance databases.
+  - **Advantages**: Ultra-low latency and high IOPS.
+  - **Limitations**: Highest cost per GB among all disk types.
 
 #### Key Characteristics:
 
-- **Azure Managed**: Azure handles the storage account management.
-- **Scalability**: Easily scalable without worrying about storage account limits.
-- **Simplicity**: Simplifies VM management by abstracting storage account details.
-- **Availability Sets**: Automatically placed in different storage accounts when used with availability sets to ensure higher availability.
-- **Cost**: You only pay for the used space without managing storage account limits.
+  - **Azure Managed**: Azure handles the storage account management.
+  - **Scalability**: Easily scalable without worrying about storage account limits.
+  - **Simplicity**: Simplifies VM management by abstracting storage account details.
+  - **Availability Sets**: Automatically placed in different storage accounts when used with availability sets to ensure higher availability.
+  - **Cost**: You only pay for the used space without managing storage account limits.
 
 ### Unmanaged Disks
 
@@ -62,21 +62,21 @@ Unmanaged Disks require you to handle the storage accounts and the VHD files use
 #### Types of Unmanaged Disks:
 
 1. **Standard HDD**:
-- **Use Case**: Legacy systems, archival data.
-- **Advantages**: Lower cost per GB compared to SSDs.
-- **Limitations**: Slower performance compared to SSDs.
+  - **Use Case**: Legacy systems, archival data.
+  - **Advantages**: Lower cost per GB compared to SSDs.
+  - **Limitations**: Slower performance compared to SSDs.
 
 2. **Standard SSD**:
-- **Use Case**: General-purpose applications, databases.
-- **Advantages**: Improved performance over HDDs.
-- **Limitations**: Higher cost per GB compared to HDDs.
+  - **Use Case**: General-purpose applications, databases.
+  - **Advantages**: Improved performance over HDDs.
+  - **Limitations**: Higher cost per GB compared to HDDs.
 
 #### Key Characteristics:
 
-- **Storage Account Management**: You need to create and manage storage accounts.
-- **Scalability**: Limited by the storage account's capacity limits.
-- **Complexity**: Requires manual distribution of VHD files across storage accounts to balance the load.
-- **Cost**: You pay for the storage account capacity and the used space separately.
+  - **Storage Account Management**: You need to create and manage storage accounts.
+  - **Scalability**: Limited by the storage account's capacity limits.
+  - **Complexity**: Requires manual distribution of VHD files across storage accounts to balance the load.
+  - **Cost**: You pay for the storage account capacity and the used space separately.
 
 ### Characteristics of Managed and Unmanaged Disk types:
 ```
