@@ -1,7 +1,7 @@
 ## Day 2: IT Process Management and Introduction to DevOps
 
 ### Topics Covered:
-1. [IT Process Management](# it process managament)
+1. [IT Process Management](#it process managament)
 2. Introduction to DevOps
 3. Networking
 
