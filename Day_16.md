@@ -28,32 +28,32 @@ Managed Disks simplify storage management by handling the storage account for yo
 #### Types of Managed Disks:
 
 1. **Standard HDD**:
-  - **Use Case**: Backup storage, low IOPS applications.
-  - **Advantages**: Lower cost per GB.
-  - **Limitations**: Slower performance compared to SSDs.
+    - **Use Case**: Backup storage, low IOPS applications.
+    - **Advantages**: Lower cost per GB.
+    - **Limitations**: Slower performance compared to SSDs.
 
 2. **Standard SSD**:
-  - **Use Case**: Web servers, small databases.
-  - **Advantages**: Better performance than HDDs.
-  - **Limitations**: Limited IOPS compared to Premium SSDs.
+    - **Use Case**: Web servers, small databases.
+    - **Advantages**: Better performance than HDDs.
+    - **Limitations**: Limited IOPS compared to Premium SSDs.
 
 3. **Premium SSD**:
-  - **Use Case**: Databases, enterprise applications.
-  - **Advantages**: High IOPS and throughput.
-  - **Limitations**: Higher cost per GB compared to standard disks.
+    - **Use Case**: Databases, enterprise applications.
+    - **Advantages**: High IOPS and throughput.
+    - **Limitations**: Higher cost per GB compared to standard disks.
 
 4. **Ultra Disk**:
-  - **Use Case**: Mission-critical applications, high-performance databases.
-  - **Advantages**: Ultra-low latency and high IOPS.
-  - **Limitations**: Highest cost per GB among all disk types.
+    - **Use Case**: Mission-critical applications, high-performance databases.
+    - **Advantages**: Ultra-low latency and high IOPS.
+    - **Limitations**: Highest cost per GB among all disk types.
 
 #### Key Characteristics:
 
-  - **Azure Managed**: Azure handles the storage account management.
-  - **Scalability**: Easily scalable without worrying about storage account limits.
-  - **Simplicity**: Simplifies VM management by abstracting storage account details.
-  - **Availability Sets**: Automatically placed in different storage accounts when used with availability sets to ensure higher availability.
-  - **Cost**: You only pay for the used space without managing storage account limits.
+    - **Azure Managed**: Azure handles the storage account management.
+    - **Scalability**: Easily scalable without worrying about storage account limits.
+    - **Simplicity**: Simplifies VM management by abstracting storage account details.
+    - **Availability Sets**: Automatically placed in different storage accounts when used with availability sets to ensure higher availability.
+    - **Cost**: You only pay for the used space without managing storage account limits.
 
 ### Unmanaged Disks
 
@@ -62,21 +62,21 @@ Unmanaged Disks require you to handle the storage accounts and the VHD files use
 #### Types of Unmanaged Disks:
 
 1. **Standard HDD**:
-  - **Use Case**: Legacy systems, archival data.
-  - **Advantages**: Lower cost per GB compared to SSDs.
-  - **Limitations**: Slower performance compared to SSDs.
+    - **Use Case**: Legacy systems, archival data.
+    - **Advantages**: Lower cost per GB compared to SSDs.
+    - **Limitations**: Slower performance compared to SSDs.
 
 2. **Standard SSD**:
-  - **Use Case**: General-purpose applications, databases.
-  - **Advantages**: Improved performance over HDDs.
-  - **Limitations**: Higher cost per GB compared to HDDs.
+    - **Use Case**: General-purpose applications, databases.
+    - **Advantages**: Improved performance over HDDs.
+    - **Limitations**: Higher cost per GB compared to HDDs.
 
 #### Key Characteristics:
 
-  - **Storage Account Management**: You need to create and manage storage accounts.
-  - **Scalability**: Limited by the storage account's capacity limits.
-  - **Complexity**: Requires manual distribution of VHD files across storage accounts to balance the load.
-  - **Cost**: You pay for the storage account capacity and the used space separately.
+    - **Storage Account Management**: You need to create and manage storage accounts.
+    - **Scalability**: Limited by the storage account's capacity limits.
+    - **Complexity**: Requires manual distribution of VHD files across storage accounts to balance the load.
+    - **Cost**: You pay for the storage account capacity and the used space separately.
 
 ### Characteristics of Managed and Unmanaged Disk types:
 ```
@@ -155,14 +155,14 @@ Azure CDN helps reduce latency by creating Points of Presence (POPs) or Edge Loc
 
 ### Key Characteristics:
 
-- **Latency Reduction**: Reduces the number of hops, lowering latency.
-- **POP/Edge Locations**: Store cached content, reducing load on the origin server.
+    - **Latency Reduction**: Reduces the number of hops, lowering latency.
+    - **POP/Edge Locations**: Store cached content, reducing load on the origin server.
 
 ### Use Cases:
 
-- **Payment Gateways**: Improve response times for financial transactions.
-- **Gaming Industries**: Enhance performance and user experience.
-- **Web Applications**: Improve load times for static content like images and videos.
+    - **Payment Gateways**: Improve response times for financial transactions.
+    - **Gaming Industries**: Enhance performance and user experience.
+    - **Web Applications**: Improve load times for static content like images and videos.
 
 ### Indirect Benefits:
 
@@ -259,42 +259,42 @@ If a user hits an IP address of a web server, the server responds. However, user
 
 1.Create a Resource Group.
 2.Create a Storage Account:
- - Fill in the required details.
- - Enable anonymous access and accept default settings.
+   - Fill in the required details.
+   - Enable anonymous access and accept default settings.
 3. Create a Container in the Storage Account:
- - Upload the files to the container.
+   - Upload the files to the container.
 4. Create a CDN Profile:
- - Fill in the required details and accept default settings.
+   - Fill in the required details and accept default settings.
 5. Create a Front Door Profile:
- - Fill in the required details and accept default settings.
+   - Fill in the required details and accept default settings.
 6. Endpoint Hostname:
- - The generated endpoint hostname is provided to the on-premise service provider/developer.
+   - The generated endpoint hostname is provided to the on-premise service provider/developer.
 
 ### Create an App Service
 
 1. Create a GitHub Repository and Upload Files.
 2. Create a Resource Group.
 3. Create a Static Web App:
- - Log in to GitHub.
- - Fill in the required details.
- - Select the repository.
- - Choose the build storage.
- - Accept default settings.
+   - Log in to GitHub.
+   - Fill in the required details.
+   - Select the repository.
+   - Choose the build storage.
+   - Accept default settings.
 4. Access URL:
- - The generated URL displays the deployed content.
+   - The generated URL displays the deployed content.
 
 ### Create an Azure DNS ZOne
 
 1. Purchase a Domain Name from a Domain Registry.
 2. Create a Resource Group.
 3. Create a VM:
- - Configure the VM to deploy a web server.
+   - Configure the VM to deploy a web server.
 4. Create a DNS Zone:
- - Fill in the required details and accept default settings.
+   - Fill in the required details and accept default settings.
 5. Manage Domain:
- - Go to the domain registry and manage the domain.
- - Add the 4 name servers generated by Azure (remove the last dot in each name server).
+   - Go to the domain registry and manage the domain.
+   - Add the 4 name servers generated by Azure (remove the last dot in each name server).
 6. Add Recordsets:
- - Paste the IP of the VM.
- - Add other details (e.g., names like www, app, etc.).
+   - Paste the IP of the VM.
+   - Add other details (e.g., names like www, app, etc.).
 ---
