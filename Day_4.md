@@ -1,6 +1,6 @@
 # Day 4: Azure Disk, Dynamic IP, and Static IP
 
-## Table of Contents
+## Table of Contents 
 1. [Azure Disk](#azure-disk)
     - [Overview](#overview)
     - [Types of Azure Disks](#types-of-azure-disks)
