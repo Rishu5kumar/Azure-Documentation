@@ -1,5 +1,5 @@
 # Day 10: Understanding Azure Load Balancer and Basic Load Balancer
-
+ 
 ## Table of Contents
 1. [Introduction](#introduction)
 2. [Scaling Concepts](#scaling-concepts)
