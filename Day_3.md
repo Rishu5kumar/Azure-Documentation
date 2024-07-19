@@ -1,5 +1,5 @@
 # Day 3: Azure Account for Students Subscription and Virtual Machine Deep Dive
-
+ 
 ## Table of Contents
 1. [Azure Account for Students Subscription Steps](#azure-account-for-students-subscription-steps)
 2. [Virtual Machine Deep Dive](#virtual-machine-deep-dive)
