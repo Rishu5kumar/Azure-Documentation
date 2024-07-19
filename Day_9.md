@@ -155,7 +155,7 @@ Consider two VMs:
 - **Solution**: Use outbound port rules in NSGs to:
   - Deny access to google.com from jump-vm.
   - Allow access to google.com from web-vm.
-
+---
 ## Conclusion
 Understanding inbound and outbound traffic, managing ports effectively, and configuring NSG rules are essential for maintaining network security in Azure. By implementing these practices, you can ensure secure and controlled access to your Azure resources.
 
