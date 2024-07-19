@@ -20,7 +20,7 @@
     - [Secure Socket Tunneling Protocol (SSTP)](#secure-socket-tunneling-protocol-sstp)
     - [IKEv2 VPN](#ikev2-vpn)
 
-## Overview
+## Overview 
 In this section, we will explore the concepts of VPN (Virtual Private Network), Point-to-Site VPN, and Gateway Transit. We will also go through the steps to create and configure these features in Azure using the Azure portal.
 
 ## VPN (Virtual Private Network)
