@@ -4,7 +4,7 @@
 2. [Cloud Service and Deployment Models](#day-2-cloud-service-and-deployment-models)
 3. [Azure Key Components and Services](#day-3-azure-key-components-and-services)
 4. [Security in Cloud Computing](#day-4-security-in-cloud-computing)
- 
+
 ---
 
 ## Part 1: Introduction to Networking and Cloud Computing
