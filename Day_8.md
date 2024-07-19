@@ -10,7 +10,7 @@
    - [Example: Connecting a Home Network to Azure](#example-connecting-a-home-network-to-azure)
    - [P2S vs S2S VPN Connectivity](#p2s-vs-s2s-vpn-connectivity)
 3. [IP Address Types](#ip-address-types)
-   - [Static IP Address](#static-ip-address)
+   - [Static IP Address](#static-ip-address) 
    - [Dynamic IP Address](#dynamic-ip-address)
 4. [SKU in Azure](#sku-in-azure)
    - [Definition and Usage](#definition-and-usage)
