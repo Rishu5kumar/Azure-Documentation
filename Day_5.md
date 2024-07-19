@@ -1,5 +1,5 @@
 # Day 5: Capturing Images and VNet Deep Dive
-
+ 
 ## Table of Contents
 1. [Capturing Images](#capturing-images)
     - [Overview](#overview)
