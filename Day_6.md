@@ -8,7 +8,7 @@
     - [Creating a Virtual Network](#creating-a-virtual-network)
     - [Configuring VNet Peering](#configuring-vnet-peering)
 5. [Example Scenarios](#example-scenarios)
-
+ 
 ## Overview
 VNet Peering in Azure allows you to connect two virtual networks (VNets) seamlessly. This connection enables resources in different VNets to communicate with each other as if they were part of the same network, providing a secure and high-speed link.
 
