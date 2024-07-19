@@ -1,3 +1,5 @@
+# Day 1: Introduction to Networking and Cloud Computing, Cloud Services, Deployment Models
+
 ## Table of Contents
 
 1. [Introduction to Networking and Cloud Computing](#day-1-introduction-to-networking-and-cloud-computing)
