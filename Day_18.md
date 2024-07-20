@@ -64,7 +64,7 @@ Large Language Models (LLMs) are sophisticated AI systems designed to understand
 - **Claude:** A model with 175 billion parameters, specialized in producing precise and detailed responses.
 
 ### Scenario:
-Imagine needing to summarize a lengthy report. ChatGPT 4.0 can analyze the document, understand its content, and produce a succinct summary, showcasing its ability to handle and generate coherent text.
+Imagine needing to summarize a lengthy report. ChatGPT 4.0 can analyze the document, understand its content, and produce a concise summary, showcasing its ability to handle and generate coherent text.
 
 **Illustration of LLMs:**
 
@@ -72,6 +72,7 @@ Imagine needing to summarize a lengthy report. ChatGPT 4.0 can analyze the docum
 +--------------------+
 |   Input Text       |
 | (Long Report)      |
+| (Prompt)           |
 +--------------------+
           |
           v
@@ -84,6 +85,7 @@ Imagine needing to summarize a lengthy report. ChatGPT 4.0 can analyze the docum
 +--------------------+
 |   Output Summary   |
 | (Concise Report)   |
+| (Completion)       |
 +--------------------+
 ```
 
