@@ -1,5 +1,4 @@
 # Day 18: Generative AI Documentation
----
 
 ## Table of Contents
 1. [Generative AI Overview](#generative-ai-overview)
