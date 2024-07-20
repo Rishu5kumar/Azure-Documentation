@@ -9,8 +9,10 @@
 6. [Natural Language Processing (NLP)](#natural-language-processing-nlp)
 7. [Transformers](#transformers)
 8. [Generation Techniques](#generation-techniques)
-9. [Fine-Tuning Types](#fine-tuning-types)
-10. [Diagram of Transformer Architecture](#diagram-of-transformer-architecture)
+9. [Understanding Text with AI Components](#understanding-text-with-ai-components)
+10. [Fine-Tuning Types](#fine-tuning-types)
+11. [Diagram of Transformer Architecture](#diagram-of-transformer-architecture)
+12. [Azure Application Development Scenario](#azure-application-development-scenario)
 
 ---
 
@@ -278,12 +280,40 @@ Techniques for enhancing the performance of generative AI models include prompt 
 - **Few-Shot Learning:** The model learns from a limited number of examples.
 
 ### Scenario:
-To improve a model's ability to generate creative writing prompts
-
-, you might use prompt engineering to design effective prompts and fine-tune the model on a dataset of creative writing to enhance its output quality.
+To improve a model's ability to generate creative writing prompts, you might use prompt engineering to design effective prompts and fine-tune the model on a dataset of creative writing to enhance its output quality.
 
 ---
 
+## Understanding Text with AI Components
+
+Computers process and understand text through several key components in AI models:
+
+### Encoder
+The encoder transforms input text into a format that the AI model can process. It converts words into numerical representations or embeddings, capturing the meaning of each word in the context of the entire sentence.
+
+**Example:** For the sentence "I want a cup of ______," the encoder translates each word into vectors, which represent the words in a high-dimensional space.
+
+### Embedding Layer
+The embedding layer converts words into vectors of real numbers. These vectors capture semantic information about words, allowing the model to understand their meanings and relationships.
+
+**Example:** The word "cup" might be represented by a vector [0.1, -0.3, 0.7], which encodes its meaning based on its usage in different contexts.
+
+### Attention Layer
+The attention layer helps the model focus on relevant parts of the input when generating an output. It allows the model to weigh different words in a sentence based on their importance to the current task.
+
+**Example:** In the sentence "I want a cup of ______," the attention mechanism might focus more on the word "cup" when predicting the missing word.
+
+### Decoder
+The decoder generates the final output by processing the encoded information and attention layers. It produces a response based on the input vectors.
+
+**Example:** After processing the sentence "I want a cup of ______," the decoder might generate "coffee" as the most likely completion.
+
+### Softmax
+The softmax function is used in the final layer of the decoder to produce a probability distribution over possible output tokens. It helps in selecting the most probable word for the output.
+
+**Example:** If the model predicts "coffee" with a probability of 0.6 and "tea" with a probability of 0.4, the softmax function ensures that "coffee" is selected as the output.
+
+---
 ## Fine-Tuning Types
 
 Fine-tuning adjusts a model's parameters to improve its performance on specific tasks. 
@@ -330,3 +360,40 @@ When adapting a language model for legal document analysis, full fine-tuning wou
 ```
 
 ---
+Here’s an expanded explanation and .md file update on how computers understand text using various components, and how these concepts can be applied using Azure for developing a company-specific application:
+
+---
+
+## Azure Application Development Scenario
+
+### Scenario
+A company wants to develop and host an application that provides users with relevant answers based on their inquiries about the company. Azure can be leveraged to create and deploy this application efficiently.
+
+### Steps to Implement:
+
+1. **Azure Cognitive Services:**
+   - **Text Analytics API:** Use this API to analyze and understand user queries.
+   - **QnA Maker:** Create a knowledge base from company documents and FAQs to answer user questions.
+
+2. **Azure Functions:**
+   - Develop serverless functions to handle user queries and integrate with the QnA Maker service.
+
+3. **Azure App Service:**
+   - Host the application on Azure App Service, providing a scalable and reliable platform.
+
+4. **Azure Database:**
+   - Store company information, user interactions, and analytics in Azure SQL Database or Cosmos DB.
+
+5. **Azure Bot Services:**
+   - Deploy a chatbot to interact with users and provide responses based on the knowledge base.
+
+6. **Azure Logic Apps:**
+   - Automate workflows and integrate with other services to enhance the application's capabilities.
+
+### Example Application Workflow:
+- **User Query:** A user asks, "What are your company’s operating hours?"
+- **Processing:** The query is sent to Azure Cognitive Services, which uses the QnA Maker to find the relevant information from the company’s knowledge base.
+- **Response:** The application generates a response, such as "Our operating hours are from 9 AM to 5 PM, Monday through Friday," and presents it to the user.
+
+---
+
