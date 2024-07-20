@@ -216,7 +216,7 @@ Think of it as a directory service similar to the on-premises Active Directory, 
 - **Device Management:** Manages devices accessing corporate resources.
 - **Security:** Implements security policies and multifactor authentication.
   
-### Key Concepts
+### Key Concepts:
 
 #### Users and Groups
 
