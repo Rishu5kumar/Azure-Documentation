@@ -360,9 +360,6 @@ When adapting a language model for legal document analysis, full fine-tuning wou
 ```
 
 ---
-Here’s an expanded explanation and .md file update on how computers understand text using various components, and how these concepts can be applied using Azure for developing a company-specific application:
-
----
 
 ## Azure Application Development Scenario
 
