@@ -1,4 +1,4 @@
-# Day 19: Generative-AI: Project 1 (Chat Completion)
+# Day 19: Generative-AI: Project 1 (Chat Completion With Llama 3)
 
 ## Table of Contents
 - [Chat Completion Models vs. Text Generation Models](#chat-completion-models-vs.-text-generation-models)
@@ -12,7 +12,7 @@
 - [Private with Approved Outbound](#private-with-approved-outbound)
 
 ---
-## Generative-AI: Project 1 (Chat Completion)
+## Generative-AI: Project 1 (Chat Completion with Llama 3)
 
 ### Chat Completion Models vs. Text Generation Models**
 
