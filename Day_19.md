@@ -1,4 +1,4 @@
-# Day 19: Generative-AI: Project 1 (Chat Completion With Llama 3)
+# Day 19: Generative-AI: Project 1 (Text and Chat Completion With Llama 3)
 
 ## Table of Contents
 - [Chat Completion Models vs. Text Generation Models](#chat-completion-models-vs.-text-generation-models)
@@ -12,9 +12,14 @@
 - [Private with Approved Outbound](#private-with-approved-outbound)
 
 ---
-## Generative-AI: Project 1 (Chat Completion with Llama 3)
+## Generative-AI: Project 1 (Text and Chat Completion with Llama 3)
+A simple yet effective demonstration of text completion using the Llama 3 model. Perfect for understanding the basics of large language models.
 
-### Chat Completion Models vs. Text Generation Models**
+    - Invokes Llama 3 for text generation.
+    - Demonstrates basic prompt-response interactions.
+    - Explores model parameters and their effects.
+
+### Chat Completion Models vs. Text Generation Models
 
 **Chat Completion Models**
 - **Purpose**: Interactive conversation and dialogue, simulating human-like interactions.
