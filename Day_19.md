@@ -2,7 +2,7 @@
 
 ## Table of Contents
 - [Chat Completion Models vs. Text Generation Models](#chat-completion-models-vs.-text-generation-models)
-- [Kay Conceps](#key-concepts)
+- [Key Conceps](#key-concepts)
 - [Steps to Make Azure ML](#steps-to-make-azure-ml)
 - [URI vs. URL](#uri-vs-url)
 - [Code Explanation](#code-explanation)
