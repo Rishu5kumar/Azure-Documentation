@@ -1,4 +1,4 @@
-# Day-19: Generative-AI: Project 1 (Chat Completion)
+# Day 19: Generative-AI: Project 1 (Chat Completion)
 
 ## Table of Contents
 - [Chat Completion Models vs. Text Generation Models](#chat-completion-models-vs.-text-generation-models)
