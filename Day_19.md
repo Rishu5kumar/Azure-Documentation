@@ -147,7 +147,7 @@ The **Model Catalog** is a repository within Azure ML for storing, managing, and
 
 ---
 
-### Code Explanation**
+### Code Explanation
 
 #### os Package
 - **Purpose:** Interact with the operating system.
