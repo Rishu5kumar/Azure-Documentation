@@ -20,8 +20,8 @@
 
 ## RAG
 It is a concept that combines both an LLM and retrieval techniques:
-    1. LLM Component: The generative part of RAG, which is responsible for creating coherent text based on the retrieved information. This is often a pre-trained language model like GPT-3 or LLaMA.
-    2. Retrieval Component: The system that retrieves relevant documents or data from a knowledge base or database to provide context or additional information for the LLM to generate more accurate and informed responses.
+  - LLM Component: The generative part of RAG, which is responsible for creating coherent text based on the retrieved information. This is often a pre-trained language model like GPT-3 or LLaMA.
+  -  Retrieval Component: The system that retrieves relevant documents or data from a knowledge base or database to provide context or additional information for the LLM to generate more accurate and informed responses.
 
 ## LLM vs LangChain
 
