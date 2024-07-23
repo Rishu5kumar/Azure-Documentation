@@ -12,7 +12,7 @@
 6. [How It Works](#how-it-works)
     - [Interaction Flow](#interaction-flow)
     - [Example Interaction Flow](#example-interaction-flow)
-7. [Embeddings: Numerical Representations of Data](#embeddings:-numerical-representations-of-data)
+7. [Embeddings: Numerical Representations of Data]((embeddings:-numerical-representations-of-data))
 8. [LLM vs LangChain](#LLM-vs-LangChain)
 9. [RAG (Retrieval-Augmented Generation)](#RAG-(Retrieval-Augmented-Generation))
 10. [Libraries](#libraries)
