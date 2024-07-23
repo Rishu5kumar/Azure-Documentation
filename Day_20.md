@@ -181,7 +181,7 @@ The RAG system gives data like PDFs/text files and takes the user's query based 
 
 This approach ensures that the chatbot can provide accurate and contextually relevant answers, improving the overall user experience in scenarios like customer support.
 
-## Embeddings: Numerical Representations of Data
+## Embeddings
 
 Embeddings are numerical representations of data, often text, that capture meaning, context, and relationships in a continuous vector space. They are essential in machine learning and NLP tasks as they enable meaningful comparison and manipulation of data.
 
