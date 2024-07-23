@@ -1,21 +1,35 @@
 # Day 20: Generative AI:Project 2(RAG Application Using LLaMA and OpenAI)
 
 ## Table of Contents
-1. [Project Overview](#project-overview)
-2. [Importance of Memory in LLMs](#importance-of-memory-in-llms)
-3. [Implementation Steps](#implementation-steps)
-4. [When to Use the RAG Concept](#when-to-use-the-rag-concept)
+1. [RAG (Retrieval-Augmented Generation)](#RAG-(Retrieval-Augmented-Generation))
+2. [LLM vs LangChain](#LLM-vs-LangChain)
+
+3. [Project Overview](#project-overview)
+4. [Importance of Memory in LLMs](#importance-of-memory-in-llms)
+5. [Implementation Steps](#implementation-steps)
+6. [When to Use the RAG Concept](#when-to-use-the-rag-concept)
     - [Simple Scenario: Customer Support Chatbot](#simple-scenario-customer-support-chatbot)
-5. [Implementing RAG for a Customer Support Chatbot](#implementing-rag-for-a-customer-support-chatbot)
+7. [Implementing RAG for a Customer Support Chatbot](#implementing-rag-for-a-customer-support-chatbot)
     - [Steps](#steps)
     - [Example Code Outline](#example-code-outline)
-6. [How It Works](#how-it-works)
+8. [How It Works](#how-it-works)
     - [Interaction Flow](#interaction-flow)
     - [Example Interaction Flow](#example-interaction-flow)
-7. [Embeddings](#embeddings)
-8. [LLM vs LangChain](#LLM-vs-LangChain)
-9. [RAG (Retrieval-Augmented Generation)](#RAG-(Retrieval-Augmented-Generation))
+9. [Embeddings](#embeddings)
 10. [Libraries](#libraries)
+
+## RAG (Retrieval-Augmented Generation) 
+It is a concept that combines both an LLM and retrieval techniques:
+    1. LLM Component: The generative part of RAG, which is responsible for creating coherent text based on the retrieved information. This is often a pre-trained language model like GPT-3 or LLaMA.
+    2. Retrieval Component: The system that retrieves relevant documents or data from a knowledge base or database to provide context or additional information for the LLM to generate more accurate and informed responses.
+
+## LLM vs LangChain
+
+  - An LLM (Large Language Model) is a type of artificial intelligence model designed to understand and generate human-like text. LLMs are trained on massive amounts of text data and leverage complex neural network architectures to perform a wide range of natural language processing tasks.
+
+  - LangChain: You can use LangChain to build a more complex application that utilizes LLaMA for specific tasks, such as creating a conversational agent that uses LLaMA to generate responses and a retrieval system to fetch relevant documents.
+
+**NOTE:** LLMs are the core models for generating text, while LangChain is a framework that enhances how these models are used in applications.
 
 ## Project Overview
 This project aims to develop a conversational Retrieval-Augmented Generation (RAG) model using a serverless LLaMA-3-8b model hosted on Azure ML endpoints. By integrating a local vector database, FAISS (Facebook AI Similarity Search), the system can retrieve relevant information and maintain context in conversations. This ensures that the AI can generate accurate and context-aware responses, addressing the common limitation of statelessness in large language models (LLMs).
@@ -192,18 +206,6 @@ Consider the words "king" and "queen." In a well-trained embedding space, these 
 
 The small distance between these vectors, measured by cosine similarity, Euclidean distance, etc., indicates their semantic similarity. Similar relationships can be observed with other pairs like "apple" and "banana" or "arrow" and "bow."
 
-## LLM vs LangChain
-
-  - An LLM (Large Language Model) is a type of artificial intelligence model designed to understand and generate human-like text. LLMs are trained on massive amounts of text data and leverage complex neural network architectures to perform a wide range of natural language processing tasks.
-
-  - LangChain: You can use LangChain to build a more complex application that utilizes LLaMA for specific tasks, such as creating a conversational agent that uses LLaMA to generate responses and a retrieval system to fetch relevant documents.
-
-**NOTE:** LLMs are the core models for generating text, while LangChain is a framework that enhances how these models are used in applications.
-
-## RAG (Retrieval-Augmented Generation) 
-It is a concept that combines both an LLM and retrieval techniques:
-    1. LLM Component: The generative part of RAG, which is responsible for creating coherent text based on the retrieved information. This is often a pre-trained language model like GPT-3 or LLaMA.
-    2. Retrieval Component: The system that retrieves relevant documents or data from a knowledge base or database to provide context or additional information for the LLM to generate more accurate and informed responses.
 ## Libraries
 
 ### PyPDF2
