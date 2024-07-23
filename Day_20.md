@@ -110,8 +110,6 @@ If you're building a customer support chatbot for a company with a vast knowledg
 
 ### Example Code Outline
 
-Here's a high-level outline of the implementation:
-
 ```python
 from transformers import pipeline
 from langchain.vectorstores import FAISS
