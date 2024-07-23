@@ -1,7 +1,7 @@
-# Day 20: Generative AI:Project 2(RAG Application Using LLaMA and OpenAI)
+# Day 20: Generative AI:Project 2(RAG(Retrieval-Augmented Generation) Application Using LLaMA and OpenAI)
 
 ## Table of Contents
-1. [RAG (Retrieval-Augmented Generation)](#RAG:Retrieval-Augmented-Generation))
+1. [RAG](#RAG)
 2. [LLM vs LangChain](#LLM-vs-LangChain)
 
 3. [Project Overview](#project-overview)
