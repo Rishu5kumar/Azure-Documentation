@@ -222,27 +222,29 @@ Setting up Docker on Azure involves creating a virtual machine (VM) and then ins
     - Open a web browser and go to your VM's public IP address to see the Nginx welcome page.
       
 **Using apache2:**
-    - Update packages and install Apache:
+
+  - Update packages and install Apache:
       ```sh
       apt-get update
       apt-get install apache2 -y
       cd /var/www/html
       echo "hello" > index.html
       ```
-    - Run the container with port mapping:
+  - Run the container with port mapping:
       ```sh
       docker container run -it -p 3600:80 ubuntu /bin/bash
       service apache2 start
       ```
-    - Add inbound port rule of port 3600 in NSG.
-    - Access the web server at `VM_ip:3600`.
+  - Add inbound port rule of port 3600 in NSG.
+  - Access the web server at `VM_ip:3600`.
 
 **Note:** 
-    - Inspect Docker Container:**
+
+  - Inspect Docker Container:**
     ```sh
     docker inspect <container_id>
     ```
-    - The vi editor is not installed by default in Docker containers, so using vi <filename> will not work without installation.
+  - The vi editor is not installed by default in Docker containers, so using vi <filename> will not work without installation.
 
 ---
 
