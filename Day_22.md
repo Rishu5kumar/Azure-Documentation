@@ -144,24 +144,8 @@ Setting up Docker on Azure involves creating a virtual machine (VM) and then ins
     - Go to [Azure Portal](https://portal.azure.com) and log in with your credentials.
 2. **Create a Resource**
     - Click on **Create a resource** in the left-hand menu.
-3. **Search for Virtual Machine**
-    - In the search bar, type **Virtual Machine** and select it from the list.
-4. **Configure Basics**
-    - **Subscription:** Choose your subscription.
-    - **Resource Group:** Select an existing resource group or create a new one.
-    - **Virtual Machine Name:** Give your VM a name.
-    - **Region:** Choose the region closest to your location or where you want the VM to be hosted.
-    - **Image:** Select the image you want to use (e.g., Ubuntu Server 20.04 LTS).
-    - **Size:** Choose the size of the VM (Standard B1s is a good start for small setups).
-5. **Administrator Account**
-    - **Authentication Type:** Choose Password.
-    - **Username:** Enter a username.
-    - **Password:** Enter a strong password and confirm it.
-6. **Inbound Port Rules**
+3. **Create a Virtual Machine**
     - Select **Allow selected ports** and choose SSH (22).
-7. **Review + Create**
-    - Click on **Review + create**.
-    - After validation, click **Create**.
 
 ### Step 2: Connect to the Virtual Machine
 1. **Go to the Virtual Machine**
@@ -236,6 +220,29 @@ Setting up Docker on Azure involves creating a virtual machine (VM) and then ins
 
 3. **Access the Web Server**
     - Open a web browser and go to your VM's public IP address to see the Nginx welcome page.
+      
+**Using apache2:**
+    - Update packages and install Apache:
+      ```sh
+      apt-get update
+      apt-get install apache2 -y
+      cd /var/www/html
+      echo "hello" > index.html
+      ```
+    - Run the container with port mapping:
+      ```sh
+      docker container run -it -p 3600:80 ubuntu /bin/bash
+      service apache2 start
+      ```
+    - Add inbound port rule of port 3600 in NSG.
+    - Access the web server at `VM_ip:3600`.
+
+**Note:** 
+    - Inspect Docker Container:**
+    ```sh
+    docker inspect <container_id>
+    ```
+    - The vi editor is not installed by default in Docker containers, so using vi <filename> will not work without installation.
 
 ---
 
