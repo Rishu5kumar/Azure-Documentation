@@ -18,7 +18,7 @@
     - [Use Cases](#use-cases-for-azure-traffic-manager)
     - [Setting Up](#setting-up-azure-traffic-manager)
     - [Diagram](#traffic-manager-diagram)
-
+---
 ## Azure Site Recovery (ASR)
 
 Azure Site Recovery (ASR) is a disaster recovery solution that helps ensure business continuity by keeping applications and workloads running during outages. It replicates workloads running on physical and virtual machines (VMs) from a primary site to a secondary location.
@@ -59,6 +59,7 @@ Azure Site Recovery (ASR) is a disaster recovery solution that helps ensure busi
 |         (Azure)             |
 +-----------------------------+
 ```
+---
 ## Active Directory Defense Services
 
 Active Directory (AD) Defense Services focus on protecting and securing your AD infrastructure against threats and vulnerabilities. This involves a combination of best practices, tools, and monitoring to ensure the integrity and security of your AD environment.
@@ -124,6 +125,7 @@ Active Directory (AD) Defense Services focus on protecting and securing your AD 
 |  Backup & Recovery Planning |
 +-----------------------------+
 ```
+---
 ## Azure Traffic Manager
 
 Azure Traffic Manager is a DNS-based load balancing solution that allows you to distribute incoming network traffic across multiple services and endpoints. It improves the availability, performance, and resilience of your applications by directing user requests to the most appropriate endpoints based on various routing methods.
