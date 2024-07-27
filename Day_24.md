@@ -7,6 +7,7 @@
 4. [Private Docker Registry](#private-docer-registry)
 5. [Terraform](#terraform)
 6. [GitOps Workflow with Terraform, GitLab and Docker](#gitOps-workflow-with-terraform-GitLab-and-docker)
+7. [ADD vs COPY](#add-vs-copy)
 ---
 Private registry
 ## Dockerfile
@@ -525,4 +526,29 @@ resource "azurerm_resource_group" "example" {
 8. **Create/Update Resources:** Terraform updates infrastructure based on the plan.
 
 **Summary:** Write Terraform scripts, store in GitLab, use GitLab CI/CD and Docker to automate and manage infrastructure, ensuring consistency, automation, and security.
+---
+## ADD vs COPY
+The `ADD` and `COPY` commands in Dockerfiles are used to include files from the host system into the Docker image, but they have some key differences:
+
+### **COPY**
+- **Purpose**: Copies files or directories from the host system into the Docker image.
+- **Capabilities**: 
+  - Only copies files and directories.
+  - Does not handle any special processing beyond copying.
+- **Syntax**: `COPY <src> <dest>`
+  - *Example*: `COPY ./localfile.txt /app/`
+
+### **ADD**
+- **Purpose**: Similar to `COPY`, but with additional functionalities.
+- **Capabilities**: 
+  - Copies files and directories from the host system.
+  - Can also handle remote URLs. If a URL is provided, Docker will download the file and add it to the image.
+  - Automatically extracts compressed tar files (e.g., `.tar`, `.tar.gz`, `.tgz`).
+- **Syntax**: `ADD <src> <dest>`
+  - *Example*: `ADD https://example.com/file.tar.gz /app/` (downloads and extracts the file)
+  - *Example*: `ADD ./localfile.tar.gz /app/` (extracts the tar file into `/app/`)
+
+### **Summary**
+- Use **`COPY`** for simple file and directory copying.
+- Use **`ADD`** if you need to fetch files from a URL or if you need to automatically extract tar archives.
 ---
