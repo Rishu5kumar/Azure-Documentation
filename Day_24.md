@@ -284,6 +284,94 @@ A Private Docker Registry is a secure place to store Docker images, accessible o
 - **Access Control**: You control who can upload or download images.
 - **Custom and Secure**: Ensures your Docker images are kept safe and accessible only to authorized users.
 
+### **Creating a Private Docker Registry in Azure**
+
+#### **1. Setup**
+1. **Log in to the Azure Portal.**
+2. **Create a Resource Group**:
+   - Navigate to “Resource Groups” and click “Add” to create a new group.
+
+#### **2. Create a VM**
+1. **Create a Virtual Machine (VM)**:
+   - Go to “Virtual Machines” and click “Add” to create a VM.
+   - Choose a suitable image (e.g., Ubuntu) and size.
+2. **Connect to VM**:
+   - Use SSH to connect to the VM.
+
+#### **3. Install Docker**
+1. **Install Docker**:
+   - Update package lists: `sudo apt-get update`
+   - Install Docker: `sudo apt-get install docker.io`
+   - Start Docker: `sudo systemctl start docker`
+   - Enable Docker to start on boot: `sudo systemctl enable docker`
+
+#### **4. Run Docker Registry**
+1. **Pull Docker Registry Image**:
+   - `sudo docker pull registry`
+2. **Run Docker Registry Container**:
+   - `sudo docker run -itd -p 5000:5000 --name simple_registry registry`
+
+#### **5. Manage Docker Registry**
+1. **Check Images in Registry**:
+   - Install `elinks`: `sudo apt-get install elinks`
+   - Check images with: `elinks http://127.0.0.1:5000/v2/_catalog`
+   - Or use `curl`: `curl http://127.0.0.1:5000/v2/_catalog`
+
+2. **Push Images to Registry**:
+   - Pull images: `sudo docker pull mysql`, `sudo docker pull alpine`, `sudo docker pull nginx`
+   - Tag images: 
+     - `sudo docker tag mysql 127.0.0.1:5000/mysql`
+     - `sudo docker tag alpine 127.0.0.1:5000/alpine`
+     - `sudo docker tag nginx 127.0.0.1:5000/nginx`
+   - Push images:
+     - `sudo docker push 127.0.0.1:5000/mysql`
+     - `sudo docker push 127.0.0.1:5000/alpine`
+     - `sudo docker push 127.0.0.1:5000/nginx`
+
+3. **Verify Images in Registry**:
+   - Use `curl` or `elinks` to check the catalog at `http://127.0.0.1:5000/v2/_catalog`.
+
+#### **6. Access Registry from Other Systems**
+1. **Obtain VM’s Private IP**:
+   - Find the private IP address of the VM in the Azure portal.
+
+2. **Allow Port in NSG**:
+   - Open port 5000 in the Network Security Group (NSG) inbound rules for the VM.
+
+3. **Tag and Push Images Using Private IP**:
+   - Tag images: 
+     - `sudo docker tag alpine <PRIVATE_IP>:5000/alpine`
+   - Push images: 
+     - `sudo docker push <PRIVATE_IP>:5000/alpine`
+
+4. **Bypass SSL Certificates (Optional)**:
+   - **Create `daemon.json`**:
+     - `vi daemon.json`
+     - Add:
+       ```json
+       {
+         "insecure-registries": ["<PRIVATE_IP>:5000"]
+       }
+       ```
+   - **Move to Docker Directory**:
+     - `sudo cp daemon.json /etc/docker/`
+   - **Restart Docker**:
+     - `sudo systemctl restart docker`
+
+5. **If Using SSL Certificates**:
+   - Generate SSL certificates with `openssl`.
+   - Place certificates in `/etc/docker/`.
+   - Restart Docker: `sudo systemctl restart docker`.
+
+#### **7. Manage Docker Containers**
+1. **Start Docker Containers**:
+   - Start containers if they stopped: `sudo docker container start <container_id>`
+
+### **Notes**
+- Replace `<PRIVATE_IP>` with the actual private IP address of the VM.
+- Ensure Docker and registry ports are correctly configured and accessible.
+- Using SSL certificates is recommended for secure communications.
+  
 ---
 ## Terraform
 
