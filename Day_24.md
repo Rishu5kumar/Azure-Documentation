@@ -513,7 +513,7 @@ resource "azurerm_resource_group" "example" {
 - **Compliance:** Centralizes secret management.
 ---
 
-## GitOps Workflow with Terraform, GitLab, and Docker
+## GitOps Workflow with Terraform, GitLab and Docker
 
 1. **Write Terraform Scripts:** Define infrastructure in Terraform files.
 2. **Use GitOps:** Git as the single source of truth for infrastructure code.
