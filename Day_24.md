@@ -6,7 +6,7 @@
 3. [Compliance Considerations](#compliance-considerations)
 4. [Private Docker Registry](#private-docer-registry)
 5. [Terraform](#terraform)
-6. [GitOps Workflow with Terraform, GitLab, and Docker](#gitOps-workflow-with-terraform,-GitLab,-and-docker)
+6. [GitOps Workflow with Terraform, GitLab, and Docker](#gitOps-workflow-with-terraform,GitLab,and-docker)
 ---
 Private registry
 ## Dockerfile
