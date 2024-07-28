@@ -1,4 +1,4 @@
-# Day 24: Dockerfile, Private registry, Terraform
+# Day 24: Dockerfile, Private Registry, Terraform
 
 # Table of Contents
 1. [Dockerfile](#dockerfile)
