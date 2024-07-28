@@ -9,7 +9,6 @@
 6. [GitOps Workflow with Terraform, GitLab and Docker](#gitOps-workflow-with-terraform-GitLab-and-docker)
 7. [ADD vs COPY](#add-vs-copy)
 ---
-Private registry
 ## Dockerfile
 
 ### What It Is
