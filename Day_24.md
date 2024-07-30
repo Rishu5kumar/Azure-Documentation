@@ -10,7 +10,7 @@
 7. [ADD vs COPY](#add-vs-copy)
 ---
 ## Dockerfile
-
+  
 ### What It Is
 A Dockerfile is a text file containing instructions on how to build a Docker image. It acts as a recipe, detailing everything that should be included in the image.
 
