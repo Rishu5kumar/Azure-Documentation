@@ -12,9 +12,8 @@
 9. [Kubernetes API-Server](#kubernetes-api-server)
 10. [Other Kubernetes Components](#other-kubernetes-components)
 11. [Conclusion](#conclusion)
----
 
-## 1. Introduction to Kubernetes
+## Introduction to Kubernetes
 
 ### The Problem Before Kubernetes
 Before the advent of Kubernetes, developers faced several challenges when deploying and managing containerized applications:
@@ -33,7 +32,7 @@ Imagine you have an e-commerce application with several microservices (e.g., pay
 
 ---
 
-## 2. Introduction to Docker
+## Introduction to Docker
 
 ### What is Docker?
 Docker is a platform for developing, shipping, and running applications inside containers. A container packages an application and its dependencies together, ensuring that it runs consistently across different environments.
@@ -47,7 +46,7 @@ Docker is the container runtime used by Kubernetes. While Docker handles the cre
 
 ---
 
-## 3. Kubernetes Architecture
+## Kubernetes Architecture
 
 ### Overview of Kubernetes Architecture
 Kubernetes architecture is based on a master-slave (control plane and worker nodes) model. The **control plane** manages the overall state of the cluster, while **worker nodes** run the application workloads.
@@ -76,7 +75,7 @@ Consider a scenario with one master and two worker nodes. The master node manage
 
 ---
 
-## 4. Kubernetes Clusters
+## Kubernetes Clusters
 
 ### What is a Kubernetes Cluster?
 A Kubernetes cluster is a set of nodes (machines) that run containerized applications managed by the Kubernetes control plane. The cluster ensures that your applications run as intended, even as nodes fail or scale.
@@ -92,7 +91,7 @@ In Azure, you can set up multiple VMs in the same virtual network and configure 
 
 ---
 
-## 5. Setting Up Kubernetes Clusters in Azure
+## Setting Up Kubernetes Clusters in Azure
 
 ### Prerequisites for Setting Up Kubernetes Clusters
 - Check the machines of the cluster can ping each other via ip and hostname. Type ‘hostname’ to know the hostname of VM after connecting it via ssh.
@@ -206,7 +205,7 @@ Install a network plugin to allow communication between pods:
 
 ---
 
-## 6. Deploying Applications on Kubernetes
+## Deploying Applications on Kubernetes
 
 ### Deploying an Application in a Kubernetes Cluster
 - **Create a Deployment**:
@@ -240,7 +239,7 @@ Once the service is created with a `LoadBalancer` type, Kubernetes will provisio
 
 ---
 
-## 7. Swap Memory in Kubernetes
+## Swap Memory in Kubernetes
 
 ### What is Swap Memory?
 Swap memory is a space on a disk used when the system's RAM is fully utilized. It's slower than RAM but provides additional memory resources.
@@ -262,7 +261,7 @@ Kubernetes relies on predictable performance, and swap memory can introduce vari
 
 ---
 
-## 8. Deploying Applications on Kubernetes
+## Deploying Applications on Kubernetes
 
 ### Deploying an Application in a Kubernetes Cluster
 
@@ -291,7 +290,7 @@ Kubernetes relies on predictable performance, and swap memory can introduce vari
 
 ---
 
-## 9. Kubernetes API-Server
+## Kubernetes API-Server
 
 ### What is the Kubernetes API-Server?
 The Kubernetes API-Server is the control plane component that exposes the Kubernetes API. It serves as the primary entry point for all administrative tasks in the cluster.
@@ -302,7 +301,7 @@ The Kubernetes API-Server is the control plane component that exposes the Kubern
 
 ---
 
-## 10. Other Kubernetes Components
+## Other Kubernetes Components
 
 ### kubelet API
 - **Description**: The `kubelet` API is responsible for managing the lifecycle of containers on a node.
@@ -326,7 +325,7 @@ The Kubernetes API-Server is the control plane component that exposes the Kubern
 
 ---
 
-## 11. Conclusion
+## Conclusion
 
 ### Summary
 Kubernetes provides a robust platform for managing containerized applications across multiple nodes, automating tasks like scaling, networking, and deployment.
