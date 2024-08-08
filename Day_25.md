@@ -78,51 +78,17 @@ In Azure, you can set up multiple VMs in the same virtual network and configure 
 
 ---
 
-## 5. Setting Up Kubernetes in Azure
+## 5. Setting Up Kubernetes Clusters in Azure
 
-### Prerequisites for Setting Up Kubernetes
-- **Azure Subscription**: You need an active Azure subscription.
-- **Azure CLI**: Install the Azure CLI to interact with Azure services from your terminal.
-- **Kubernetes Tools**: Install `kubectl`, `kubeadm`, and `kubelet` on your machines.
-- **Networking**: Ensure that all VMs can communicate with each other and have access to the internet.
-- **Swap Memory**: Disable swap memory on all nodes to ensure Kubernetes runs smoothly.
-
-### Detailed Step-by-Step Setup on Azure
-
-1. **Create an Azure Kubernetes Service (AKS) Cluster**
-
-   - **Step 1**: Log in to the Azure Portal.
-   - **Step 2**: Navigate to **Azure Kubernetes Service** by searching for "Kubernetes services" in the search bar.
-   - **Step 3**: Click on **Create**.
-   - **Step 4**: Fill in the required details:
-     - **Resource Group**: Create a new resource group or select an existing one.
-     - **Kubernetes Cluster Name**: Give your cluster a name.
-     - **Region**: Select the region closest to you.
-     - **Node Size**: Choose the size of your nodes (e.g., Standard_DS2_v2).
-     - **Node Count**: Select the number of nodes (e.g., 2).
-   - **Step 5**: Configure the **Authentication** and **Networking** settings as required. For basic setups, you can use the defaults.
-   - **Step 6**: Review and create the cluster.
-
-2. **Accessing the Kubernetes Dashboard**
-
-   - **Step 1**: Once the cluster is created, navigate to the resource group and select your AKS cluster.
-   - **Step 2**: Under **Cluster Monitoring**, select **View Kubernetes dashboard**.
-   - **Step 3**: Follow the instructions to set up access. You may need to create a service account and get the `kubeconfig` file.
-
-3. **Configuring Nodes**
-
-   - Azure AKS automatically configures the nodes as part of the cluster creation. You can scale the nodes later by going to the **Node pools** section in the AKS cluster.
-
-### Swap Memory Management
-- **Azure**: Swap memory management in Azure Kubernetes is handled automatically by the AKS service, so you typically don't need to manage this manually unless you're dealing with specific workloads.
-
-### Network Configuration Using Azure Portal
-- **Network Plugin**: During the AKS setup, you can select the network plugin (Azure CNI or Kubenet) that best fits your needs. Azure CNI is recommended for advanced networking scenarios.
-
+### Prerequisites for Setting Up Kubernetes Clusters
+- Check the machines of the cluster can ping each other via ip and hostname. Type ‘hostname’ to know the hostname of VM after connecting it via ssh.
+- Swap should be off.
+- Respective ports in the firewall should be opened.
+- Check for the minimum configuration of the machine from the official documentation.
 
 ### Detailed Step-by-Step Setup on Azure
 
-1. **Create Virtual Machines (VMs)**
+1. **Create at least 3 Virtual Machines (VMs) using cmd or azure portal**
    - Log in to your Azure account:
      ```bash
      az login
@@ -138,7 +104,7 @@ In Azure, you can set up multiple VMs in the same virtual network and configure 
      az vm create --resource-group KubernetesResourceGroup --name WorkerNode2 --image UbuntuLTS --admin-username azureuser --generate-ssh-keys
      ```
 
-2. **Disable Swap Memory**
+2. **Disable Swap Memory:** Type 'free -h' to know whether the swap memory is zero or not.
    - SSH into each VM:
      ```bash
      ssh azureuser@<VM_PUBLIC_IP>
@@ -147,76 +113,62 @@ In Azure, you can set up multiple VMs in the same virtual network and configure 
      ```bash
      sudo swapoff -a
      ```
+3. Open port 6443, 2379-2380, 10250, 10259, 10257 on master node and open port no. 10250, 30000-32767 on worker nodes, but if we type * on destination port ranges then it will allow all port numbers.
+4. Master node must have 2vcpu and 2 gb ram at least.
 
-3. **Install Docker on Each Node**
-   - Update package information and install prerequisites:
-     ```bash
-     sudo apt-get update
-     sudo apt-get install -y apt-transport-https ca-certificates curl software-properties-common
-     ```
-   - Add Docker’s official GPG key:
-     ```bash
-     curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-     ```
-   - Set up the stable repository:
-     ```bash
-     sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
-     ```
-   - Install Docker:
-     ```bash
-     sudo apt-get update
-     sudo apt-get install -y docker-ce
-     ```
-   - Verify Docker installation:
-     ```bash
-     sudo systemctl status docker
-     ```
+#### Commands to run on all the nodes
+##### get sudo working
+sudo -l 
 
-4. **Install Kubernetes Tools (kubectl, kubeadm, kubelet)**
-   - Add the Kubernetes apt repository:
-     ```bash
-     curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
-     sudo apt-add-repository "deb http://apt.kubernetes.io/ kubernetes-xenial main"
-     ```
-   - Install Kubernetes tools:
-     ```bash
-     sudo apt-get update
-     sudo apt-get install -y kubelet kubeadm kubectl
-     ```
-   - Hold these packages at their current version:
-     ```bash
-     sudo apt-mark hold kubelet kubeadm kubectl
-     ```
+##### update packages and their versions
+sudo apt-get update && sudo apt-get upgrade -y
+##### install curl and apt-transport-https 
+sudo apt-get update && sudo apt-get install -y apt-transport-https curl
+##### add key to verify releases
+curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
+##### add kubernetes apt reporting
+cat <<EOF | sudo tee /etc/apt/sources.list.d/kubernetes.list
+deb https://apt.kubernetes.io/ kubernetes-xenial main
+EOF
+##### install kubelet, kubeadm and kubectl
+sudo apt-get update
+sudo apt-get install -y kubelet kubeadm kubectl
+##### install docker
+sudo apt-get install docker.io -y
+##### apt-mark hold is used so that these packages will not be updated/removed automatically
+sudo apt-mark hold kubelet kubeadm kubectl
+##### after the above commands are successfully run on all the worker nodes and master node. Below steps can be followed to initialize the kubernetes cluster.
 
-### Configuring the Master Node
-- **Initialize the Kubernetes Cluster**:
-  ```bash
-  sudo kubeadm init --pod-network-cidr=10.244.0.0/16
-  ```
-- **Set up the Kubernetes configuration file**:
-  ```bash
-  mkdir -p $HOME/.kube
-  sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
-  sudo chown $(id -u):$(id -g) $HOME/.kube/config
-  ```
+#### on master node
+##### run the below command on the node that you want to make the leader node. Please make sure you replace the correct ip of the node with ip-of-node.
+```bash
+Kubeadm init –pod-network-cider=10.244.0.0/16 -v=9
+```
+(this cmnd is going to initialize our kubernetes cluster)
+##### now in master node where you pasted this cmnd, so to start using your cluster, you need to run the following as a regular user:
+```bash
+mkdir -p $HOME/.kube
+sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+sudo chown $(id-u):$(id-g) $HOME/.kube/config
+kubectl get nodes
+```
 
-### Configuring Worker Nodes
-- **Join the Worker Nodes to the Cluster**:
-  On the worker nodes, run the command provided by `kubeadm init` (from the master node) to join them to the cluster:
-  ```bash
-  sudo kubeadm join <MASTER_NODE_IP>:<PORT> --token <TOKEN> --discovery-token-ca-cert-hash sha256:<HASH>
-  ```
+##### now run join cmnd to join all the worker nodes in every worker nodes and this command will be given in master node
+```bash
+kubectl get pods -n kube-system
+```
+##### install CNI plugin
+##### the below command can be run on the leader node to install the CNI plugin
+```bash
+kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
+kubectl get nodes(now all the nodes will be in ready state)
+```
 
-### Using `kubeadm` to Initialize the Cluster
-`kubeadm` simplifies the process of setting up a Kubernetes cluster by automating the configuration of control plane components.
-
-### Setting Up Network Plugins (CNI)
+###### Setting Up Network Plugins (CNI)
 Install a network plugin to allow communication between pods:
 - For Flannel:
   ```bash
-  kubectl apply -f https://raw.githubusercontent.com/coreos
-
-/flannel/master/Documentation/kube-flannel.yml
+  kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
   ```
 - For Calico:
   ```bash
