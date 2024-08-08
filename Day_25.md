@@ -25,7 +25,7 @@ Before the advent of Kubernetes, developers faced several challenges when deploy
 Kubernetes automates the deployment, scaling, and management of containerized applications:
 - **Automated Scaling**: Kubernetes automatically scales applications based on resource usage.
 - **Consistent Environments**: Kubernetes ensures consistency across all environments by running containers with the same configuration.
-- **Set-up**: Kubernetes handles the orchestration of containers, including networking, load balancing, and failover.
+- **Set-up**: Kubernetes handles the set-up of containers, including networking, load balancing, and failover.
 
 ### Scenario and Example
 Imagine you have an e-commerce application with several microservices (e.g., payment, inventory, user management). Manually deploying these services on multiple servers can lead to errors and downtime. Kubernetes automates this process, ensuring that each microservice runs in its container, with automatic scaling and self-healing capabilities.
