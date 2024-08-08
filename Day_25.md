@@ -121,23 +121,37 @@ In Azure, you can set up multiple VMs in the same virtual network and configure 
 sudo -l 
 
 ##### update packages and their versions
+```bash
 sudo apt-get update && sudo apt-get upgrade -y
+```
 ##### install curl and apt-transport-https 
+```bash
 sudo apt-get update && sudo apt-get install -y apt-transport-https curl
+```
 ##### add key to verify releases
+```bash
 curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
+```
 ##### add kubernetes apt reporting
+```bash
 cat <<EOF | sudo tee /etc/apt/sources.list.d/kubernetes.list
 deb https://apt.kubernetes.io/ kubernetes-xenial main
 EOF
+```
 ##### install kubelet, kubeadm and kubectl
+```bash
 sudo apt-get update
 sudo apt-get install -y kubelet kubeadm kubectl
+```
 ##### install docker
+```bash
 sudo apt-get install docker.io -y
+```
 ##### apt-mark hold is used so that these packages will not be updated/removed automatically
+```bash
 sudo apt-mark hold kubelet kubeadm kubectl
-##### after the above commands are successfully run on all the worker nodes and master node. Below steps can be followed to initialize the kubernetes cluster.
+```
+#### after the above commands are successfully run on all the worker nodes and master node. Below steps can be followed to initialize the kubernetes cluster.
 
 #### on master node
 ##### run the below command on the node that you want to make the leader node. Please make sure you replace the correct ip of the node with ip-of-node.
