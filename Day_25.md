@@ -38,7 +38,7 @@ Imagine you have an e-commerce application with several microservices (e.g., pay
 Docker is a platform for developing, shipping, and running applications inside containers. A container packages an application and its dependencies together, ensuring that it runs consistently across different environments.
 
 ### Docker and Kubernetes Relationship
-Docker is the container runtime used by Kubernetes. While Docker handles the creation and management of containers, Kubernetes orchestrates and manages these containers across a cluster of machines.
+Docker is the container runtime used by Kubernetes. While Docker handles the creation and management of containers, Kubernetes orchestrates(set-up) and manages these containers across a cluster of machines.
 
 ### Differences between Docker and Kubernetes
 - **Docker**: Focuses on containerizing applications. It creates and runs containers on a single node.
