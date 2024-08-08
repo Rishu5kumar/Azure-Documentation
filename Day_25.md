@@ -118,8 +118,9 @@ In Azure, you can set up multiple VMs in the same virtual network and configure 
 
 #### Commands to run on all the nodes
 ##### get sudo working
+```bash
 sudo -l 
-
+```
 ##### update packages and their versions
 ```bash
 sudo apt-get update && sudo apt-get upgrade -y
