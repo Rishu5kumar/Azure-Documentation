@@ -82,8 +82,10 @@ In Azure, you can set up multiple VMs in the same virtual network and configure 
 
 ### Prerequisites for Setting Up Kubernetes
 - **Azure Subscription**: You need an active Azure subscription.
-- **Azure CLI**: Ensure you have the Azure CLI installed if you want to use it for additional configuration tasks.
+- **Azure CLI**: Install the Azure CLI to interact with Azure services from your terminal.
+- **Kubernetes Tools**: Install `kubectl`, `kubeadm`, and `kubelet` on your machines.
 - **Networking**: Ensure that all VMs can communicate with each other and have access to the internet.
+- **Swap Memory**: Disable swap memory on all nodes to ensure Kubernetes runs smoothly.
 
 ### Detailed Step-by-Step Setup on Azure
 
@@ -117,9 +119,178 @@ In Azure, you can set up multiple VMs in the same virtual network and configure 
 ### Network Configuration Using Azure Portal
 - **Network Plugin**: During the AKS setup, you can select the network plugin (Azure CNI or Kubenet) that best fits your needs. Azure CNI is recommended for advanced networking scenarios.
 
+
+### Detailed Step-by-Step Setup on Azure
+
+1. **Create Virtual Machines (VMs)**
+   - Log in to your Azure account:
+     ```bash
+     az login
+     ```
+   - Create a resource group:
+     ```bash
+     az group create --name KubernetesResourceGroup --location eastus
+     ```
+   - Create VMs for the master and worker nodes:
+     ```bash
+     az vm create --resource-group KubernetesResourceGroup --name MasterNode --image UbuntuLTS --admin-username azureuser --generate-ssh-keys
+     az vm create --resource-group KubernetesResourceGroup --name WorkerNode1 --image UbuntuLTS --admin-username azureuser --generate-ssh-keys
+     az vm create --resource-group KubernetesResourceGroup --name WorkerNode2 --image UbuntuLTS --admin-username azureuser --generate-ssh-keys
+     ```
+
+2. **Disable Swap Memory**
+   - SSH into each VM:
+     ```bash
+     ssh azureuser@<VM_PUBLIC_IP>
+     ```
+   - Disable swap memory:
+     ```bash
+     sudo swapoff -a
+     ```
+
+3. **Install Docker on Each Node**
+   - Update package information and install prerequisites:
+     ```bash
+     sudo apt-get update
+     sudo apt-get install -y apt-transport-https ca-certificates curl software-properties-common
+     ```
+   - Add Docker’s official GPG key:
+     ```bash
+     curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+     ```
+   - Set up the stable repository:
+     ```bash
+     sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+     ```
+   - Install Docker:
+     ```bash
+     sudo apt-get update
+     sudo apt-get install -y docker-ce
+     ```
+   - Verify Docker installation:
+     ```bash
+     sudo systemctl status docker
+     ```
+
+4. **Install Kubernetes Tools (kubectl, kubeadm, kubelet)**
+   - Add the Kubernetes apt repository:
+     ```bash
+     curl -s https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
+     sudo apt-add-repository "deb http://apt.kubernetes.io/ kubernetes-xenial main"
+     ```
+   - Install Kubernetes tools:
+     ```bash
+     sudo apt-get update
+     sudo apt-get install -y kubelet kubeadm kubectl
+     ```
+   - Hold these packages at their current version:
+     ```bash
+     sudo apt-mark hold kubelet kubeadm kubectl
+     ```
+
+### Configuring the Master Node
+- **Initialize the Kubernetes Cluster**:
+  ```bash
+  sudo kubeadm init --pod-network-cidr=10.244.0.0/16
+  ```
+- **Set up the Kubernetes configuration file**:
+  ```bash
+  mkdir -p $HOME/.kube
+  sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+  sudo chown $(id -u):$(id -g) $HOME/.kube/config
+  ```
+
+### Configuring Worker Nodes
+- **Join the Worker Nodes to the Cluster**:
+  On the worker nodes, run the command provided by `kubeadm init` (from the master node) to join them to the cluster:
+  ```bash
+  sudo kubeadm join <MASTER_NODE_IP>:<PORT> --token <TOKEN> --discovery-token-ca-cert-hash sha256:<HASH>
+  ```
+
+### Using `kubeadm` to Initialize the Cluster
+`kubeadm` simplifies the process of setting up a Kubernetes cluster by automating the configuration of control plane components.
+
+### Setting Up Network Plugins (CNI)
+Install a network plugin to allow communication between pods:
+- For Flannel:
+  ```bash
+  kubectl apply -f https://raw.githubusercontent.com/coreos
+
+/flannel/master/Documentation/kube-flannel.yml
+  ```
+- For Calico:
+  ```bash
+  kubectl apply -f https://docs.projectcalico.org/v3.14/manifests/calico.yaml
+  ```
+
 ---
 
 ## 6. Deploying Applications on Kubernetes
+
+### Deploying an Application in a Kubernetes Cluster
+- **Create a Deployment**:
+  ```bash
+  kubectl create deployment nginx --image=nginx
+  ```
+- **Expose the Deployment as a Service**:
+  ```bash
+  kubectl expose deployment nginx --port=80 --type=LoadBalancer
+  ```
+- **Check the Status**:
+  ```bash
+  kubectl get pods
+  kubectl get services
+  ```
+
+### Accessing the Application via Public IP
+Once the service is created with a `LoadBalancer` type, Kubernetes will provision a public IP address for the service. You can access the application using this IP.
+
+### Rolling Updates and Deployment Strategies
+- **Rolling Update**:
+  Update an application image with zero downtime:
+  ```bash
+  kubectl set image deployment/nginx nginx=nginx:1.19.3
+  ```
+- **Rolling Back**:
+  Roll back to the previous deployment:
+  ```bash
+  kubectl rollout undo deployment/nginx
+  ```
+
+---
+
+
+
+
+
+
+
+
+
+
+## 6. Swap Memory in Kubernetes
+
+### What is Swap Memory?
+Swap memory is a space on a disk used when the system's RAM is fully utilized. It's slower than RAM but provides additional memory resources.
+
+### Importance in Kubernetes Setup
+Kubernetes relies on predictable performance, and swap memory can introduce variability. Disabling swap ensures consistent behavior.
+
+### How to Manage Swap Memory
+- **Disable Swap Temporarily**:
+  ```bash
+  sudo swapoff -a
+  ```
+- **Disable Swap Permanently**:
+  Edit the `/etc/fstab` file and comment out the swap entry:
+  ```bash
+  sudo nano /etc/fstab
+  # Comment out the line that includes "swap"
+  ```
+
+---
+
+## 7. Deploying Applications on Kubernetes
 
 ### Deploying an Application in a Kubernetes Cluster
 
@@ -148,20 +319,18 @@ In Azure, you can set up multiple VMs in the same virtual network and configure 
 
 ---
 
-## 7. Kubernetes API-Server
+## 8. Kubernetes API-Server
 
 ### What is the Kubernetes API-Server?
 The Kubernetes API-Server is the control plane component that exposes the Kubernetes API. It serves as the primary entry point for all administrative tasks in the cluster.
 
 ### Interaction with Other Components
-- **kubectl**: The command-line tool interacts with the API-Server to manage
-
- resources.
+- **kubectl**: The command-line tool interacts with the API-Server to manage resources.
 - **Scheduler and Controller-Manager**: Communicate with the API-Server to get the current state of the cluster and make decisions.
 
 ---
 
-## 8. Other Kubernetes Components
+## 9. Other Kubernetes Components
 
 ### kubelet API
 - **Description**: The `kubelet` API is responsible for managing the lifecycle of containers on a node.
@@ -185,7 +354,7 @@ The Kubernetes API-Server is the control plane component that exposes the Kubern
 
 ---
 
-## 9. Conclusion
+## 10. Conclusion
 
 ### Summary
 Kubernetes provides a robust platform for managing containerized applications across multiple nodes, automating tasks like scaling, networking, and deployment.
