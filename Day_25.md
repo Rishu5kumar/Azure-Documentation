@@ -197,5 +197,3 @@ Kubernetes provides a robust platform for managing containerized applications ac
 - **Regular Backups**: Regularly back up etcd data to ensure cluster recovery.
 
 ---
-
-This guide should help you set up and manage a Kubernetes cluster on Azure using the Azure Portal, with only minimal command-line interaction where necessary. Let me know if you need further details or specific instructions!
