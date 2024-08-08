@@ -1,5 +1,19 @@
 # Day 25: Kubernetes in Azure: A Comprehensive Guide
 
+## Table of Contents
+1. [Introduction to Kubernetes](#introduction-to-kubernetes)
+2. [Introduction to Docker](#introduction-to-docker)
+3. [Kubernetes Architecture](#kubernetes-architecture)
+4. [Kubernetes Clusters](#kubernetes-clusters)
+5. [Setting Up Kubernetes Clusters in Azure](#setting-up-kubernetes-clusters-in-azure)
+6. [Deploying Applications on Kubernetes](#deploying-applications-on-kubernetes)
+7. [Swap Memory in Kubernetes](#swap-memory-in-kubernetes)
+8. [Deploying Applications on Kubernetes](#deploying-applications-on-kubernetes)
+9. [Kubernetes API-Server](#kubernetes-api-server)
+10. [Other Kubernetes Components](#other-kubernetes-components)
+11. [Conclusion](#conclusion)
+---
+
 ## 1. Introduction to Kubernetes
 
 ### The Problem Before Kubernetes
@@ -226,16 +240,7 @@ Once the service is created with a `LoadBalancer` type, Kubernetes will provisio
 
 ---
 
-
-
-
-
-
-
-
-
-
-## 6. Swap Memory in Kubernetes
+## 7. Swap Memory in Kubernetes
 
 ### What is Swap Memory?
 Swap memory is a space on a disk used when the system's RAM is fully utilized. It's slower than RAM but provides additional memory resources.
@@ -257,7 +262,7 @@ Kubernetes relies on predictable performance, and swap memory can introduce vari
 
 ---
 
-## 7. Deploying Applications on Kubernetes
+## 8. Deploying Applications on Kubernetes
 
 ### Deploying an Application in a Kubernetes Cluster
 
@@ -286,7 +291,7 @@ Kubernetes relies on predictable performance, and swap memory can introduce vari
 
 ---
 
-## 8. Kubernetes API-Server
+## 9. Kubernetes API-Server
 
 ### What is the Kubernetes API-Server?
 The Kubernetes API-Server is the control plane component that exposes the Kubernetes API. It serves as the primary entry point for all administrative tasks in the cluster.
@@ -297,7 +302,7 @@ The Kubernetes API-Server is the control plane component that exposes the Kubern
 
 ---
 
-## 9. Other Kubernetes Components
+## 10. Other Kubernetes Components
 
 ### kubelet API
 - **Description**: The `kubelet` API is responsible for managing the lifecycle of containers on a node.
@@ -321,7 +326,7 @@ The Kubernetes API-Server is the control plane component that exposes the Kubern
 
 ---
 
-## 10. Conclusion
+## 11. Conclusion
 
 ### Summary
 Kubernetes provides a robust platform for managing containerized applications across multiple nodes, automating tasks like scaling, networking, and deployment.
