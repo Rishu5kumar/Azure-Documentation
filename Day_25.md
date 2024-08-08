@@ -19,13 +19,13 @@
 Before the advent of Kubernetes, developers faced several challenges when deploying and managing containerized applications:
 - **Manual Scaling**: Scaling applications manually across multiple machines was complex and error-prone.
 - **Inconsistent Environments**: Differences in development, testing, and production environments led to inconsistencies and bugs.
-- **Complex Orchestration**: Managing dependencies, communication between services, and failover strategies required custom scripts and manual intervention.
+- **Complex Set-up**: Managing dependencies, communication between services, and failover strategies required custom scripts and manual intervention.
 
 ### How Kubernetes Solves These Problems
 Kubernetes automates the deployment, scaling, and management of containerized applications:
 - **Automated Scaling**: Kubernetes automatically scales applications based on resource usage.
 - **Consistent Environments**: Kubernetes ensures consistency across all environments by running containers with the same configuration.
-- **Orchestration**: Kubernetes handles the orchestration of containers, including networking, load balancing, and failover.
+- **Set-up**: Kubernetes handles the orchestration of containers, including networking, load balancing, and failover.
 
 ### Scenario and Example
 Imagine you have an e-commerce application with several microservices (e.g., payment, inventory, user management). Manually deploying these services on multiple servers can lead to errors and downtime. Kubernetes automates this process, ensuring that each microservice runs in its container, with automatic scaling and self-healing capabilities.
